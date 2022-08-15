@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="mod_bossindicators_icons.tex" />
+	<Elements>
+		<Element name="alterguardian_phase1.tex" u1="0.834984375" u2="0.9443125" v2="0.999" v1="0.901390625" />
+		<Element name="alterguardian_phase2.tex" u1="0.596703125" u2="0.68259375" v2="0.76071875" v1="0.651390625" />
+		<Element name="alterguardian_phase3.tex" u1="0.4355703125" u2="0.500953125" v2="0.3964609375" v1="0.2871328125" />
+		<Element name="antlion.tex" u1="0.001" u2="0.118140625" v2="0.76071875" v1="0.643578125" />
+		<Element name="bearger.tex" u1="0.68459375" u2="0.801734375" v2="0.76071875" v1="0.643578125" />
+		<Element name="beequeen.tex" u1="0.2383046875" u2="0.3554453125" v2="0.64353125" v1="0.526390625" />
+		<Element name="beequeenhivegrown.tex" u1="0.4775625" u2="0.594703125" v2="0.999" v1="0.881859375" />
+		<Element name="bishop.tex" u1="0.502953125" u2="0.62009375" v2="0.3964609375" v1="0.2793203125" />
+		<Element name="bishop_nightmare.tex" u1="0.23928125" u2="0.356421875" v2="0.40525" v1="0.288109375" />
+		<Element name="chester_eyebone.tex" u1="0.5371328125" u2="0.590796875" v2="0.22165625" v1="0.1679921875" />
+		<Element name="claywarg.tex" u1="0.23928125" u2="0.356421875" v2="0.762671875" v1="0.64553125" />
+		<Element name="crabking.tex" u1="0.71584375" u2="0.832984375" v2="0.879859375" v1="0.76271875" />
+		<Element name="deer.tex" u1="0.001" u2="0.118140625" v2="0.403296875" v1="0.28615625" />
+		<Element name="deerclops.tex" u1="0.4775625" u2="0.594703125" v2="0.76071875" v1="0.643578125" />
+		<Element name="dirtpile.tex" u1="0.001" u2="0.118140625" v2="0.165015625" v1="0.047875" />
+		<Element name="dragonfly.tex" u1="0.4355703125" u2="0.5527109375" v2="0.5156015625" v1="0.3984609375" />
+		<Element name="eyeofterror.tex" u1="0.358421875" u2="0.4335703125" v2="0.40525" v1="0.295921875" />
+		<Element name="firehound.tex" u1="0.120140625" u2="0.2363046875" v2="0.6484140625" v1="0.538109375" />
+		<Element name="fruitflyfruit.tex" u1="0.6777578125" u2="0.731421875" v2="0.403296875" v1="0.3496328125" />
+		<Element name="gingerbreadhouse.tex" u1="0.001" u2="0.118140625" v2="0.879859375" v1="0.76271875" />
+		<Element name="gingerbreadpig.tex" u1="0.803734375" u2="0.920875" v2="0.76071875" v1="0.643578125" />
+		<Element name="gingerbreadwarg.tex" u1="0.23928125" u2="0.356421875" v2="0.8818125" v1="0.764671875" />
+		<Element name="hermit_cracked_pearl.tex" u1="0.7929921875" u2="0.84665625" v2="0.5224375" v1="0.4687734375" />
+		<Element name="hermit_pearl.tex" u1="0.4775625" u2="0.5312265625" v2="0.1620859375" v1="0.108421875" />
+		<Element name="hound.tex" u1="0.35646875" u2="0.4726328125" v2="0.999" v1="0.8886953125" />
+		<Element name="hutch_fishbowl.tex" u1="0.5332265625" u2="0.586890625" v2="0.2773203125" v1="0.22365625" />
+		<Element name="icehound.tex" u1="0.120140625" u2="0.2363046875" v2="0.999" v1="0.8886953125" />
+		<Element name="klaus.tex" u1="0.120140625" u2="0.23728125" v2="0.7675546875" v1="0.6504140625" />
+		<Element name="klaus_sack.tex" u1="0.001" u2="0.118140625" v2="0.999" v1="0.881859375" />
+		<Element name="klaussackkey.tex" u1="0.62209375" u2="0.6757578125" v2="0.340796875" v1="0.2871328125" />
+		<Element name="knight.tex" u1="0.6738515625" u2="0.7909921875" v2="0.5224375" v1="0.405296875" />
+		<Element name="knight_nightmare.tex" u1="0.23928125" u2="0.356421875" v2="0.16696875" v1="0.049828125" />
+		<Element name="koalefant_summer.tex" u1="0.596703125" u2="0.71384375" v2="0.879859375" v1="0.76271875" />
+		<Element name="koalefant_winter.tex" u1="0.596703125" u2="0.71384375" v2="0.999" v1="0.881859375" />
+		<Element name="leif.tex" u1="0.5547109375" u2="0.6718515625" v2="0.5156015625" v1="0.3984609375" />
+		<Element name="leif_sparse.tex" u1="0.3164296875" u2="0.4335703125" v2="0.524390625" v1="0.40725" />
+		<Element name="malbatross.tex" u1="0.120140625" u2="0.23728125" v2="0.403296875" v1="0.28615625" />
+		<Element name="mermking.tex" u1="0.358421875" u2="0.4755625" v2="0.7675546875" v1="0.6504140625" />
+		<Element name="messagebottle.tex" u1="0.4775625" u2="0.5312265625" v2="0.2773203125" v1="0.22365625" />
+		<Element name="minotaur.tex" u1="0.120140625" u2="0.23728125" v2="0.8866953125" v1="0.7695546875" />
+		<Element name="moonstorm_static_item.tex" u1="0.62209375" u2="0.6757578125" v2="0.3964609375" v1="0.342796875" />
+		<Element name="moose.tex" u1="0.8340078125" u2="0.9511484375" v2="0.641578125" v1="0.5244375" />
+		<Element name="rook.tex" u1="0.4775625" u2="0.594703125" v2="0.879859375" v1="0.76271875" />
+		<Element name="rook_nightmare.tex" u1="0.834984375" u2="0.952125" v2="0.899390625" v1="0.78225" />
+		<Element name="sculpture_bishophead.tex" u1="0.7148671875" u2="0.8320078125" v2="0.641578125" v1="0.5244375" />
+		<Element name="sculpture_knighthead.tex" u1="0.5957265625" u2="0.7128671875" v2="0.641578125" v1="0.5244375" />
+		<Element name="sculpture_rooknose.tex" u1="0.0781484375" u2="0.1952890625" v2="0.5224375" v1="0.405296875" />
+		<Element name="shadow_bishop.tex" u1="0.358421875" u2="0.4755625" v2="0.1659921875" v1="0.0488515625" />
+		<Element name="shadow_knight.tex" u1="0.358421875" u2="0.4755625" v2="0.2851328125" v1="0.1679921875" />
+		<Element name="shadow_rook.tex" u1="0.120140625" u2="0.23728125" v2="0.165015625" v1="0.047875" />
+		<Element name="spat.tex" u1="0.001" u2="0.118140625" v2="0.641578125" v1="0.5244375" />
+		<Element name="spiderqueen.tex" u1="0.1972890625" u2="0.3144296875" v2="0.524390625" v1="0.40725" />
+		<Element name="stalker.tex" u1="0.120140625" u2="0.23728125" v2="0.28415625" v1="0.167015625" />
+		<Element name="stalker_atrium.tex" u1="0.001" u2="0.118140625" v2="0.28415625" v1="0.167015625" />
+		<Element name="stalker_forest.tex" u1="0.23928125" u2="0.356421875" v2="0.286109375" v1="0.16896875" />
+		<Element name="terrarium.tex" u1="0.588890625" u2="0.6425546875" v2="0.2773203125" v1="0.22365625" />
+		<Element name="toadstool.tex" u1="0.358421875" u2="0.4755625" v2="0.8866953125" v1="0.7695546875" />
+		<Element name="toadstool_cap.tex" u1="0.358421875" u2="0.4755625" v2="0.6484140625" v1="0.5312734375" />
+		<Element name="toadstool_dark.tex" u1="0.23928125" u2="0.35446875" v2="0.999" v1="0.8838125" />
+		<Element name="twinofterror1.tex" u1="0.001" u2="0.0761484375" v2="0.5224375" v1="0.413109375" />
+		<Element name="twinofterror2.tex" u1="0.922875" u2="0.9980234375" v2="0.78025" v1="0.670921875" />
+		<Element name="walrus_camp.tex" u1="0.4775625" u2="0.5937265625" v2="0.5937265625" v1="0.5176015625" />
+		<Element name="warg.tex" u1="0.71584375" u2="0.832984375" v2="0.999" v1="0.881859375" />
+		<Element name="warglet.tex" u1="0.4775625" u2="0.528296875" v2="0.641578125" v1="0.5957265625" />
+		<Element name="wormhole.tex" u1="0.4775625" u2="0.5351328125" v2="0.22165625" v1="0.1640859375" />
+	</Elements>
+</Atlas>

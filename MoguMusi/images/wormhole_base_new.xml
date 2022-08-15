@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="wormhole_base_new.tex" />
+	<Elements>
+		<Element name="wormhole_1.tex" u1="0.001" u2="0.249" v2="0.999" v1="0.751" />
+		<Element name="wormhole_2.tex" u1="0.251" u2="0.499" v2="0.999" v1="0.751" />
+		<Element name="wormhole_3.tex" u1="0.001" u2="0.249" v2="0.749" v1="0.501" />
+		<Element name="wormhole_4.tex" u1="0.251" u2="0.499" v2="0.749" v1="0.501" />
+		<Element name="wormhole_5.tex" u1="0.501" u2="0.749" v2="0.999" v1="0.751" />
+		<Element name="wormhole_6.tex" u1="0.751" u2="0.999" v2="0.999" v1="0.751" />
+		<Element name="wormhole_7.tex" u1="0.501" u2="0.749" v2="0.749" v1="0.501" />
+		<Element name="wormhole_8.tex" u1="0.751" u2="0.999" v2="0.749" v1="0.501" />
+		<Element name="wormhole_9.tex" u1="0.001" u2="0.249" v2="0.499" v1="0.251" />
+		<Element name="wormhole_10.tex" u1="0.251" u2="0.499" v2="0.499" v1="0.251" />
+	</Elements>
+</Atlas>

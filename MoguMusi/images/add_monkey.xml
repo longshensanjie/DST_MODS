@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="add_monkey.tex" />
+	<Elements>
+		<Element name="dummytarget.tex" u1="0.001" u2="0.1943125" v2="0.999" v1="0.52834375" variant="" />
+		<Element name="hermitcrab.tex" u1="0.1963125" u2="0.389625" v2="0.999" v1="0.42678125" variant="" />
+		<Element name="polly_rogers.tex" u1="0.001" u2="0.21775" v2="0.42478125" v1="0.03615625" variant="" />
+		<Element name="powder_monkey.tex" u1="0.391625" u2="0.5849375" v2="0.999" v1="0.46584375" variant="" />
+		<Element name="prime_mate.tex" u1="0.5869375" u2="0.87790625" v2="0.999" v1="0.4150625" variant="" />
+	</Elements>
+</Atlas>

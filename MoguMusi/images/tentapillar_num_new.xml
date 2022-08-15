@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+    <Texture filename="tentapillar_num_new.tex" />
+    <Elements>
+        <Element name="tentapillar_1.tex"  u1="0.001" u2="0.249" v2="0.999" v1="0.751" />
+        <Element name="tentapillar_2.tex"  u1="0.251" u2="0.499" v2="0.999" v1="0.751" />
+        <Element name="tentapillar_3.tex"  u1="0.001" u2="0.249" v2="0.749" v1="0.501" />
+        <Element name="tentapillar_4.tex"  u1="0.251" u2="0.499" v2="0.749" v1="0.501" />
+        <Element name="tentapillar_5.tex"  u1="0.501" u2="0.749" v2="0.999" v1="0.751" />
+        <Element name="tentapillar_6.tex"  u1="0.751" u2="0.999" v2="0.999" v1="0.751" />
+        <Element name="tentapillar_7.tex"  u1="0.501" u2="0.749" v2="0.749" v1="0.501" />
+        <Element name="tentapillar_8.tex"  u1="0.751" u2="0.999" v2="0.749" v1="0.501" />
+        <Element name="tentapillar_9.tex"  u1="0.001" u2="0.249" v2="0.499" v1="0.251" />
+        <Element name="tentapillar_10.tex" u1="0.251" u2="0.499" v2="0.499" v1="0.251" />
+    </Elements>
+</Atlas>

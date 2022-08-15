@@ -1,0 +1,51 @@
+return {
+    "terrarium", "gunpowder", "beemine", "trap_teeth",
+    "dug_trap_starfish", "sleepbomb", "panflute",
+
+    "eyeturret_item", "healingsalve", "bandage", "lifeinjector", "reviver",
+    "tillweedsalve", "halloweenpotion_bravery_small",
+    "halloweenpotion_bravery_large", "halloweenpotion_health_small",
+    "halloweenpotion_health_large", "halloweenpotion_sanity_small",
+    "halloweenpotion_sanity_large", "halloweenpotion_embers",
+    "halloweenpotion_sparks", "halloweenpotion_moon",  "bathbomb",
+    "firecrackers", "moonrockidol", "moonrockseed",
+    "multiplayer_portal_moonrock_constr_plans", "reskin_tool", "hermit_pearl",
+    "hermit_cracked_pearl", "messagebottle", "messagebottleempty",
+    "archive_lockbox", "archive_resonator_item", 
+    "thurible", "houndwhistle", "pig_coin",
+    "beef_bell", "nightmare_timepiece", "atrium_key", "shadowheart",
+    "cookbook", "yotc_carrat_scale_item",
+    "yotc_carrat_gym_speed_item", "yotc_carrat_gym_reaction_item",
+    "yotc_carrat_gym_stamina_item", "yotc_carrat_gym_direction_item",
+    "yotc_carrat_race_start_item", "yotc_carrat_race_checkpoint_item",
+    "yotc_carrat_race_finish_item", "yotb_pattern_fragment_1",
+    "yotb_pattern_fragment_2", "yotb_pattern_fragment_3", "yotb_post_item",
+    "yotb_sewingmachine_item", "yotb_stage_item", "beefalo_groomer_item",
+    "lavae_tooth", "alterguardianhatshard", "carnival_gametoken",
+    "carnival_plaza_kit", "carnival_prizebooth_kit", "carnival_prizeticket",
+    "carnival_seedpacket", "carnivalcannon_confetti_kit",
+    "carnivalcannon_sparkle_kit", "carnivalcannon_streamer_kit",
+    "carnivaldecor_eggride1_kit", "carnivaldecor_eggride2_kit",
+    "carnivaldecor_eggride3_kit", "carnivaldecor_figure_kit",
+    "carnivaldecor_lamp_kit", "carnivaldecor_plant_kit",
+    "carnivalgame_feedchicks_food", "carnivalgame_feedchicks_kit",
+    "carnivalgame_herding_kit", "carnivalgame_memory_kit", "kitcoon_nametag",
+    "cattoy_mouse", "kitcoondecor1_kit", "kitcoondecor2_kit", "kitcoonden_kit",
+
+    "wagstaff_tool_1", "wagstaff_tool_2", "wagstaff_tool_3", "wagstaff_tool_4",
+    "wagstaff_tool_5", 
+
+    -- 鸭年华
+    "carnivaldecor_banner_kit","carnivaldecor_eggride4_kit","carnivalgame_puckdrop_kit",
+    "carnivalgame_shooting_kit","carnivalgame_wheelspin_kit","dock_kit","dock_woodposts_item",
+    "carnivaldecor_figure_kit_season2",
+
+    -- 先丢在这
+    "razor", "featherpencil", "saddle_basic",
+    "saddle_race", "saddle_war",  "fertilizer",
+    "pumpkin_lantern", "miniboatlantern", 
+    "featherfan", "perdfan", "miniflare", "megaflare","giftwrap", "bundlewrap",
+    "sewing_kit", "bedroll_straw", "bedroll_furry",
+    "portabletent_item", "heatrock", "birdtrap", "trap",  "tacklecontainer",
+    "supertacklecontainer",  "pocket_scale"
+}

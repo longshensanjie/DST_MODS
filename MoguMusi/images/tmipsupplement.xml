@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="tmipsupplement.tex" />
+	<Elements>
+		<Element name="critter_eyeofterror.tex" u1="0.46975" u2="0.9599375" v2="0.999" v1="0.016625"/>
+		<Element name="grassgator.tex" u1="0.001" u2="0.46775" v2="0.999" v1="0.0635" />
+	</Elements>
+</Atlas>
