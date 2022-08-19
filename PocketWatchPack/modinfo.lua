@@ -1,7 +1,7 @@
 name = "旺达的时间流逝怀表包"
 description = "一个具有时间流逝功能的旺达怀表工具包".."\n\n配置：可自行选择制作难度，默认正常难度"
 author = "西风"
-version = "1.0.4"
+version = "1.0.5"
 forumthread = ""
 api_version = 6
 api_version_dst = 10
