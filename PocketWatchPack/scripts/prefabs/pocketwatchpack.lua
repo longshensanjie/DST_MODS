@@ -32,7 +32,7 @@ local function RestoreWatchs(inst)
 				print(percent)
 				if percent < 1 then
 					if (v.GetActionVerb_CAST_POCKETWATCH == "REVIVER") then
-						ercent = math.min(1, percent + 0.5 / (TUNING.POCKETWATCH_REVIVE_COOLDOWN / TUNING.BOOKSTATION_RESTORE_TIME / 2))
+						percent = math.min(1, percent + 0.5 / (TUNING.POCKETWATCH_REVIVE_COOLDOWN / TUNING.BOOKSTATION_RESTORE_TIME / 2))
 						print("reviver watch start set percent")
 						print(percent)
 						v.components.rechargeable:SetPercent(percent)
