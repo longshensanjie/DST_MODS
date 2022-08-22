@@ -149,3 +149,11 @@ MapWidget.OnZoomOut = function(self)
 		end
 	end
 end
+
+if GetModConfigData("minimap_light") then
+	AddPrefabPostInit("world", function(inst)
+		inst:ListenForEvent("playeractivated", function(self)
+		GLOBAL.TheWorld.minimap.MiniMap:DrawForgottenFogOfWar(false)
+		end)
+	end)
+end

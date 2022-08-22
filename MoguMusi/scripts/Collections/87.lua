@@ -1,5 +1,5 @@
 AddPlayerPostInit(function(inst)
-    inst:DoTaskInTime(0.88, function()
+    inst:DoTaskInTime(1.88, function()
         if inst.replica.inventory then
             local hl = inst.replica.inventory:GetEquippedItem("head")
             if hl and hl.prefab == "alterguardianhat" then

@@ -14,9 +14,6 @@ local function GetEntDist(ent1, ent2)
     return 10000
 end
 
-local function GetAggro(ent)
-    return ent and ent:IsValid() and ent.replica.combat and ent.replica.combat:GetTarget()
-end
 
 local function CheckLateFrame(ent, judgedelay)
     if ent and ent:IsValid() and ent.entity then
@@ -63,7 +60,7 @@ local atk_table = {
         anim = {atk = 24},
     }
 }
-local ATK_KEY = true
+local ATK_KEY = false
 local initdelay = 14
 local avaping = 1
 
@@ -105,12 +102,7 @@ for bossname,boss in pairs(atk_table)do
     end)
 end
 
-DEAR_BTNS:AddDearBtn(GLOBAL.GetInventoryItemAtlas("wortox_soul.tex"), "wortox_soul.tex", "测试躲避", "龙蝇、巨鹿、鹿鸭、熊大、主教（SETDELAY手动设置）", false, function()
+DEAR_BTNS:AddDearBtn(GLOBAL.GetInventoryItemAtlas("wortox_soul.tex"), "wortox_soul.tex", "测试躲避", "【测试功能，请勿开启】龙蝇、巨鹿、鹿鸭、熊大、主教", false, function()
     ATK_KEY = not ATK_KEY
     TIP("躲避辅助", "PURPLE", ATK_KEY)
 end)
-
-function GLOBAL.SETDELAY(num)
-    initdelay = num
-    print("已设置延迟为",num,"帧")
-end

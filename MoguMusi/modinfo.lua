@@ -1,5 +1,5 @@
 name = "蘑菇慕斯 · 蝶蛹󰀜"
-version = "dev1.191"
+version = "dev1.23"
 
 
 description = 
@@ -356,6 +356,16 @@ addTitle("小地图"),
 		default = true,
 	},
 	{
+		name = "minimap_light",
+		label = "亮地图",
+		hover = "让地图更趋近于单机的地图, 更亮",
+		options = {
+			{description = "开启", data = true,},
+			{description = "关闭", data = false},
+		},
+		default = true,
+	},
+	{
 		name = "minimap_size",
 		label = "地图大小",
 		hover = "控制小地图的大小",
@@ -577,8 +587,15 @@ addTitle("功能面板"),
 	},
 	{
 		name = "sw_wow",
-		label = "水上行走",
-		hover = "海上按,拥有快速制作能力请同时按Ctrl",
+		label = "解除控制",
+		hover = "可以制作物品时可以打断玩家冰冻、催眠、跳跃虫洞的效果",
+		options = theBoardKeys,
+		default = "biubiu",
+	},
+	{
+		name = "sw_autodragon",
+		label = "自动打龙蝇",
+		hover = "包含自动吹排箫，自动走位、自动打龙蝇（需要自己摆墙）",
 		options = theBoardKeys,
 		default = "biubiu",
 	},
@@ -993,7 +1010,7 @@ addTitle("行为排队论"),
 	},
 	{
 		name = "Q_double_click_range",
-		label = "响应范围",
+		label = "选中范围",
 		hover = "周围可触发双击选中的范围",
 		options = BuildNumConfig(10, 60, 5),
 		default = 25,
@@ -1628,10 +1645,9 @@ addTitle("其他功能"),
 	{
 		name = "sw_justgo",
 		label = "自动寻路",
-		hover = " 右键点击地图即可自动到达，鹰眼模式左键点击画面也可自动到达【打开延迟补偿才能生效】",
+		hover = " 右键点击地图即可自动到达",
 		options = {
 			{description = "开启", data = true, hover = "恶魔人需要中键点击地图才能触发"},
-			{description = "允许地图传送", data = "canTele", hover = "给群友加的功能，开启创造模式后可以右击地图传送"},
 			{description = "关闭", data = false},
 		},
 		default = true,
@@ -2259,20 +2275,6 @@ addTitle("Tony YYDS"),
         default = 16
 	},
 	{
-		name = "tony_easy_anchor",
-		label = "快速用锚",
-		hover = "使用最近的船锚",
-		options = theBoardKeys,
-		default = "biubiu",
-	},
-	{
-		name = "tony_easy_steering",
-		label = "快速用舵",
-		hover = "使用最近的船舵",
-		options = theBoardKeys,
-		default = "biubiu",
-	},
-	{
 		name = "tony_auto_carnival_feeding",
 		label = "鸟吃虫虫",
 		hover = "自动玩夏季盛宴鸟鸟吃虫虫",
@@ -2408,22 +2410,12 @@ addTitle("Tony YYDS"),
 			default = true,
 		},
 		{
-			name = "sw_testfunc",
-			label = "卡海与解控",
-			hover = "慕斯的测试功能, 非开发者请勿开启[启用测试面板来开放此项]",
-			options = {
-				{description = "开启", data = true},
-				{description = "关闭", data = false},
-			},
-			default = true,
-		},
-		{
 			name = "sw_eyeofterror",
-			label = "内部测试",
+			label = "不要打开这个",
 			hover = "内部测试功能, 仅供呼吸测试",
 			options = {
-				{description = "开启", data = true,},
-				{description = "关闭", data = false},
+				{description = "开启", data = true, hover = "千万不要打开！ 人物会做一些奇怪的事~"},
+				{description = "关闭", data = false, hover = "仅供呼吸的测试功能, 不要打开不好打开~"},
 			},
 			default = true,
 		},

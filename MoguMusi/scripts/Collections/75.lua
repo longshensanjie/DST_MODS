@@ -29,11 +29,12 @@ end
 
 function TIP(stat, color, content, way)
     if GLOBAL.GetTimePlaying() < 5 then return end
-    local loca = GetModConfigData("sw_tip")
-    if not loca then
+    if type(stat) == "string" and not color and not content and not way then
+        GLOBAL.ChatHistory:AddToHistory(GLOBAL.ChatTypes.Message, nil, nil, "Message", stat, COLORS.GREEN)
         return
     end
-    local tcolor = COLORS[string.upper(color)]
+    local loca = GetModConfigData("sw_tip")
+    local tcolor = color and COLORS[string.upper(color)] or COLORS.WHITE
     if way then
         loca = way
     end
@@ -241,15 +242,78 @@ function IsInMODlist(modlist)
     return false
 end
 
+function c_anim(anims, ent)
+    if not ent then
+        return
+    end
+    if type(anims) == "table" then
+        for _,anim in pairs(anims)do
+            if ent.AnimState:IsCurrentAnimation(anim) then
+                return true
+            end
+        end
+        return false
+    else
+        return ent.AnimState:IsCurrentAnimation(anims)
+    end
+end
+
 function PlayerFindEnts(range, allowTags, banTags)
     local pos = GLOBAL.ThePlayer:GetPosition()
     return GLOBAL.TheSim:FindEntities(pos.x, 0, pos.z, range, allowTags, banTags)
 end
 
-function PlayerFindEnt(name)
-    if GLOBAL.ThePlayer and name then
-        return GLOBAL.FindEntity(GLOBAL.ThePlayer, 20, function(inst) return inst.prefab==name end)
+
+function PlayerFindEnt(name, range, allowTags, banTags, allowAnims, banAnims)
+    if not range then
+        range = 80
     end
+    if type(allowTags) ~= "table" then
+        allowTags = nil
+    end
+    if type(banTags) ~= "table" then
+        banTags = {'FX','DECOR','INLIMBO','NOCLICK'}
+    end
+    if type(banAnims) == nil then
+        banAnims = {"death"}
+    end
+
+    local neardist = 6400
+    local player_pos = GLOBAL.ThePlayer:GetPosition()
+    local all_ents = GLOBAL.TheSim:FindEntities(player_pos.x, 0, player_pos.z, range, allowTags, banTags)
+    local nearent
+    for _,ent in pairs(all_ents)do
+        if (type(name) == "table" and table.contains(name, ent.prefab)) or name == ent.prefab
+        and ((allowAnims and c_anim(allowAnims, ent)) or (not allowAnims))
+        and (banAnims and not c_anim(banAnims, ent))
+        then
+            local dist = ent:GetPosition():DistSq(player_pos)
+            if dist and dist < neardist then
+                neardist = dist
+                nearent = ent
+            end
+        end
+    end
+    return nearent
+end
+
+
+local function nearEye()
+    -- 返回最近的boss
+    local mypos = GLOBAL.Vector3(GLOBAL.ThePlayer.Transform:GetWorldPosition())
+    local eyes = PlayerFindEnts(40, {"epic"}, nil)
+    local neareye
+    local neardist = 1000
+    for _,eyeboss in pairs(eyes)do
+        if table.contains(bigeye, eyeboss.prefab) and eyeboss.Transform then
+            local epos = GLOBAL.Vector3(eyeboss.Transform:GetWorldPosition())
+            if epos:Dist(mypos) < neardist then
+                neardist = epos:Dist(mypos)
+                neareye = eyeboss
+            end
+        end
+    end
+    return neareye
 end
 
 -- 面板功能绑定
@@ -561,6 +625,28 @@ function SendActionAndFn(act, fn)
         fn()
     end
 end
+
+-- local function SendAction(act)
+--     local x, _, z = GLOBAL.ThePlayer.Transform:GetWorldPosition()
+--     SendActionAndFn(act, function()
+--         GLOBAL.SendRPCToServer(GLOBAL.RPC.LeftClick, act.action.code, x, z, act.target, true)
+--     end)
+-- end
+
+-- local STEERINGWHEEL_MUSTTAGS = {"steeringwheel"}
+-- local STEERINGWHEEL_CANTTAGS = {"INLIMBO", "burnt", "occupied", "fire"}
+-- local function SteerBoat()
+--     local target = GLOBAL.FindEntity(GLOBAL.ThePlayer, 5, nil, STEERINGWHEEL_MUSTTAGS, STEERINGWHEEL_CANTTAGS)
+--     if target then
+--         if GLOBAL.ThePlayer:HasTag("steeringboat") then
+--             SendAction(GLOBAL.BufferedAction(GLOBAL.ThePlayer, nil, GLOBAL.ACTIONS.STOP_STEERING_BOAT))
+--         else
+--             SendAction(GLOBAL.BufferedAction(GLOBAL.ThePlayer, target, GLOBAL.ACTIONS.STEER_BOAT))
+--         end
+--     else
+--         TIP("快速用舵","red","附近没有需要操作的船舵")
+--     end
+-- end
 -- 尝试制作某个物品
 function TryCraft(inst)
     for recname, rec in pairs(GLOBAL.AllRecipes) do
@@ -718,3 +804,59 @@ function IsEmpty(t)
     end
     return false
 end
+
+-- 仇恨目标
+function GetAggro(ent)
+    return ent and ent:IsValid() and ent.replica.combat and ent.replica.combat:GetTarget()
+end
+
+-- 方向计算器
+-- direction可选up（默认） down left right
+function GetDirectionAToB(Dist, Source, Direction)
+    if Direction == "left" or Direction == "right" then
+        local tmp = {x = Dist.x, z = Dist.z}
+        Dist.x = Source.z - tmp.z + Source.x
+        Dist.z = tmp.x - Source.x + Source.z
+    end
+    local numy = Dist.z - Source.z
+    local numx = Dist.x - Source.x
+    local absx = math.abs(numx)
+    local absy = math.abs(numy)
+    if absx == 0 and absy == 0 then
+        return 0.5, 0.5
+    end
+    if absx > absy then
+        numx = numx / absx
+        numy = numy / absx
+    else
+        numx = numx / absy
+        numy = numy / absy
+    end
+    if Direction == "down" or Direction == "right" then
+        return -numx/2, -numy/2
+    else
+        return numx/2, numy/2
+    end
+end
+
+
+-- local id = 0
+-- local oldSendRPCToServer = GLOBAL.SendRPCToServer
+-- function GLOBAL.SendRPCToServer(rpc, actcode, sth, ...)
+--     local rpc_init, act_init
+--     id = id + 1
+--     for k,v in pairs(GLOBAL.RPC)do
+--         if rpc == v then
+--             rpc_init = k
+--         end
+--     end
+--     if not rpc_init then rpc_init = rpc end
+--     for k,v in pairs(GLOBAL.ACTIONS)do
+--         if v.code == actcode then
+--             act_init = k
+--         end
+--     end
+--     if not act_init then act_init = actcode end
+--     print("ID:", id, rpc_init, act_init, "sth:",sth, "其他参数：", ...)
+--     oldSendRPCToServer(rpc, actcode, sth, ...)
+-- end

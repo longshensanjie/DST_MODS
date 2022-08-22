@@ -1,8 +1,28 @@
 --全部角色
 local foodall={}
 -- 禁止吃这个食物
-local banfood = {"jellybean"}
+local banfood = {"jellybean", "dish_medicinalliquor"}
+local all_ban_tag = {
+    "mk_pills",                         -- 神话是个屁
+}
 
+local function HasTheseTag(item, all_tags)
+    for _, tag in pairs(all_tags)do
+        if item:HasTag(tag) then
+            return true
+        end
+    end
+    return false
+end
+
+local function BelongToFood(prefab,foodall)
+    for _,food in pairs(foodall)do
+        if str_contains(prefab, food)then
+            return true
+        end
+    end
+    return false
+end
 
 local function OnHungerDelta(inst)
     if  inst.replica.hunger and inst.replica.hunger:GetCurrent() <= GetModConfigData("sw_AUTO_EAT_FOOD") then
@@ -11,6 +31,7 @@ local function OnHungerDelta(inst)
             local invent = player.replica.inventory
             local items = GetItemsFromAll()
             local must_tag = "preparedfood"                             -- 必须是料理
+            local ban_tag = "mk_pills"
             local can_tag                                               -- 某些角色可以吃
             local dont_tag                                              -- 某些角色不能吃
             if player.prefab == "wathgrithr" then
@@ -28,7 +49,9 @@ local function OnHungerDelta(inst)
             local function GetNeedFood()
                 for _,item in pairs(items)do
                     if ((must_tag and item:HasTag(must_tag)) or (can_tag and item:HasTag(can_tag))) 
-                    and not table.contains(banfood, item.prefab) then
+                    and not BelongToFood(item.prefab, banfood)
+                    and not HasTheseTag(item, all_ban_tag)
+                    then
                         if dont_tag then
                             if not item:HasTag(dont_tag)then
                                 return item

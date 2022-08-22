@@ -15,12 +15,9 @@ ShroomCakeModsTable =
 {
     -- 测试功能不应该受其他部分导入的影响, 应该置顶
     {
-        {"sw_author", "sw_testfunc",},
-        {"卡海","解控"},
-        {
-        -- 100  -- 看图，我的看图...
-        46,     -- 卡海解控
-        },
+        {"sw_author", "sw_eyeofterror",},
+        {},
+        {123, 127},
     },
     {
         {},
@@ -33,9 +30,9 @@ ShroomCakeModsTable =
         107,
     },
     {
-        {"sw_author", "sw_eyeofterror",},
-        {},
-        {123,},
+        {"sw_autodragon","sw_mainboard"},
+        {"自动打龙蝇"},
+        {126},
     },
     {
         "sw_shizhong",
@@ -395,7 +392,7 @@ ShroomCakeModsTable =
         -- 该项加载必须在其他"sw_tony"之前
         {"sw_Tony",},
         {"Tony相关所有功能","lazy control",},
-        {105,110,
+        {110,
             108,            -- 私货, 注释此行将取消
         },
         "scripts/lazy_controls/util.lua",
@@ -512,8 +509,8 @@ ShroomCakeModsTable =
     },
     {
         {"sw_mainboard", "sw_wow"},
-        {"水上行走", "卡海"},
-        81,
+        {"解控"},
+        46,
     },
     {
         {"sw_mainboard", "sw_rescue"},

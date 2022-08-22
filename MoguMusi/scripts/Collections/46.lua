@@ -1,6 +1,6 @@
 local anims = {
-    "sink", "plank_hop", "plank_hop_loop", "xx", "xxx", "xxx_2", "frozen",
-    "frozen_loop_pst", "distress_loop", "yawn", "dozy", "sleep_loop",   -- 催眠，溺水，冰冻，粘痰等
+    "frozen",
+    "frozen_loop_pst", "distress_loop", "yawn", "dozy", "sleep_loop",   -- 催眠，冰冻，粘痰等
     "powerdown"                                                     ,   -- 大力士变小
     "buck","mount","dismount","heavy_mount",                                          -- 骑牛相关（来自：圈外人）
     -- "powerup", -- 大力士变大动画, 不推荐解除这个, 影响健身
@@ -40,28 +40,17 @@ local function Atest(addtimedelay)
     GLOBAL.ThePlayer:EnableMovementPrediction(false)
     local tryflag = TryCraft()
     GLOBAL.ThePlayer:DoTaskInTime(timedelay, function()
-        if GLOBAL.ThePlayer:IsOnOcean(true) then
-            GLOBAL.TheNet:SendSlashCmdToServer("sit", true)
-            GLOBAL.SendRPCToServer(GLOBAL.RPC.MovementPredictionEnabled)
-            GLOBAL.ThePlayer:DoTaskInTime(0, function ()
-                local ping = GLOBAL.TheNet:GetAveragePing()
-                if type(ping) == "number" and ping > 80 then
-                    TIP("延迟警告","red","当前延迟高, 请保持动作!!! （"..ping.."ms)","chat")
-                end
+        GLOBAL.ThePlayer:DoTaskInTime(addtimedelay, function ()
+            GLOBAL.SendRPCToServer(GLOBAL.RPC.DirectWalking, 0, 0)
+            GLOBAL.ThePlayer:DoTaskInTime(FS, function()
+                GLOBAL.SendRPCToServer(GLOBAL.RPC.StopWalking)
             end)
+        end)
+        
+        if tryflag then
+            TIP("解控", "green", "尝试解控")
         else
-            GLOBAL.ThePlayer:DoTaskInTime(addtimedelay, function ()
-                GLOBAL.SendRPCToServer(GLOBAL.RPC.DirectWalking, 0, 0)
-                GLOBAL.ThePlayer:DoTaskInTime(FS, function()
-                    GLOBAL.SendRPCToServer(GLOBAL.RPC.StopWalking)
-                end)
-            end)
-            
-            if tryflag then
-                TIP("解控", "green", "尝试解控")
-            else
-                TIP("解控失败", "red", "未找到可制作配方")
-            end
+            TIP("解控失败", "red", "未找到可制作配方")
         end
     end)
 end
@@ -71,39 +60,10 @@ local function WowAutoTask()
         if checkAnims(anims) then Atest() end
     end)
 end
-local function fn()
-    if not InGame() then return end
 
-    if GLOBAL.TheInput:IsKeyDown(GLOBAL.KEY_LALT) then
-        GLOBAL.TheCamera.headingtarget = 90
-        TIP("辅助功能", "green", "镜头校正90, 面向甲板")
-        return
-    end
-
-
-    if task then
-        GLOBAL.ThePlayer:EnableMovementPrediction(true)
-        task:Cancel()
-        task = nil
-        TIP("卡海解控", "green", "已关闭")
-        SaveModData(WOWData, false)
-        return
-    end
-
-    if not TryCraft(true) then
-        TIP("功能错误", "red", "没有能搓的东西,请准备点材料")
-        SaveModData(WOWData, false)
-        return
-    else
-        TIP("功能开启", "green", "卡海和解控已就绪")
-        SaveModData(WOWData, true)
-    end
-
-    WowAutoTask()
-end
 
 local recordtime = 0
-local wormholecheck = LoadModData(WHData) or false
+local wormholecheck = LoadModData(WOWData) or false
 AddPlayerPostInit(function(inst)
     inst:DoTaskInTime(1.33, function()
         if inst == GLOBAL.ThePlayer then
@@ -148,19 +108,40 @@ function GLOBAL.SendRPCToServer(rpc, actcode, target, ...)
     oldSendRPCToServer(rpc, actcode, target, ...)
 end
 
+local function fn()
+    if not InGame() then return end
+
+    if task then
+        GLOBAL.ThePlayer:EnableMovementPrediction(true)
+        task:Cancel()
+        task = nil
+        wormholecheck = false
+        TIP("解除控制", nil, wormholecheck)
+        SaveModData(WOWData, false)
+        return
+    end
+
+    if not TryCraft(true) then
+        TIP("功能错误", "red", "没有能搓的东西,请准备点材料")
+        SaveModData(WOWData, false)
+        return
+    else
+        wormholecheck = true
+        TIP("功能开启", "green", "解控已就绪")
+        SaveModData(WOWData, true)
+    end
+
+    WowAutoTask()
+end
 
 
 
-DEAR_BTNS:AddDearBtn(GLOBAL.GetInventoryItemAtlas("lavaarena_healinggarlandhat.tex"),
-                        "lavaarena_healinggarlandhat.tex", "卡海解控",
-                        "普通场景：卡海、催眠、冰冻、粘痰",
-                        false, fn)
-DEAR_BTNS:AddDearBtn(GLOBAL.GetInventoryItemAtlas("lavaarena_rechargerhat.tex"),
-"lavaarena_rechargerhat.tex", "传送解控",
-"特殊场景：落水后、虫洞后、复活后",
-false, function()
-    wormholecheck = not wormholecheck
-    TIP("传送解控","green",wormholecheck)
-    SaveModData(WHData, wormholecheck)
-end)
+if GetModConfigData("sw_wow") == "biubiu" then
+    DEAR_BTNS:AddDearBtn(GLOBAL.GetInventoryItemAtlas("tophat_witch_pyre.tex"),
+    "tophat_witch_pyre.tex", "解除控制",
+    "卡海的残党，新时代没有承载我的船",
+    false, fn)
+end
+
+AddBindBtn("sw_wow", fn)
 

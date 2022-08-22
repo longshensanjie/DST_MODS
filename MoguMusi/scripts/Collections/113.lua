@@ -31,7 +31,8 @@ local function showme()
         content = "友情提醒：你订阅的是盗版蘑菇慕斯,请更新再试"
     end
 
-    local pds = PDS("蘑菇慕斯 󰀜 智能模组", content, {{
+    local title = modname == "shroomcake" and "蘑菇慕斯 󰀜 测试版" or "蘑菇慕斯 󰀜 智能模组"
+    local pds = PDS(title, content, {{
         text = "我知道了",
         cb = function()
             GLOBAL.TheFrontEnd:PopScreen()
